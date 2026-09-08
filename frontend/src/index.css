@@ -1,0 +1,210 @@
+/* ═══════════════════════════════════════════
+   IMS Finance — Design System Tokens & Reset
+   ═══════════════════════════════════════════ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ── CSS Custom Properties (Design Tokens) ── */
+:root {
+  color-scheme: light;
+
+  /* ProMax Aesthetic: Solid, Crisp, Enterprise Light Mode */
+  /* Background Colors */
+  --color-bg-primary: #F9FAFB; /* Clean off-white background */
+  --color-bg-secondary: #F3F4F6; /* Slightly darker grey for contrast */
+  --color-bg-card: #FFFFFF; /* Solid white cards */
+  --color-bg-elevated: #FFFFFF; /* Solid white elevated cards */
+  --color-bg-input: #F3F4F6; /* Light grey input */
+  --color-bg-sidebar: #FFFFFF; /* Solid white sidebar */
+
+  /* Accent Colors (Solid, Professional) */
+  --color-primary: #2563EB; /* Enterprise Blue */
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
+  --color-secondary: #059669; /* Solid Emerald */
+  --color-secondary-dark: #047857;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-info: #0284C7;
+
+  /* Text Colors */
+  --color-text-primary: #111827; /* Near Black */
+  --color-text-secondary: #4B5563; /* Slate Grey */
+  --color-text-muted: #9CA3AF;
+  --color-text-on-accent: #FFFFFF;
+
+  /* Gradients (Overwritten with solid colors to eliminate "AI slop" gradients) */
+  --gradient-hero: var(--color-primary);
+  --gradient-success: var(--color-secondary);
+  --gradient-danger: var(--color-danger);
+  --gradient-card: var(--color-bg-card);
+
+  /* Glass & Borders (Forced to solid) */
+  --glass-bg: var(--color-bg-card);
+  --glass-blur: none;
+  --glass-border: 1px solid #E5E7EB;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --font-size-display: 3rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.125rem;
+  --font-size-body: 0.938rem;
+  --font-size-body-sm: 0.813rem;
+  --font-size-caption: 0.75rem;
+  --font-size-mono: 0.875rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows (Modern soft shadows) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
+  --shadow-glow: 0 0 24px rgba(85, 98, 255, 0.2);
+  --shadow-glow-success: 0 0 24px rgba(0, 212, 170, 0.2);
+  --shadow-glow-danger: 0 0 24px rgba(255, 107, 107, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 72px;
+  --header-height: 64px;
+  --content-max-width: 1200px;
+  
+  /* Modern Web Guidance: Scrollbar Colors */
+  scrollbar-color: var(--color-bg-elevated) var(--color-bg-primary);
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ── Utility Classes ── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+}
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+.text-success { color: var(--color-secondary); }
+.text-danger { color: var(--color-danger); }
+.text-warning { color: var(--color-warning); }
+.text-mono { font-family: var(--font-mono); }

@@ -1,0 +1,6 @@
+@ImsFinance.Api_HostAddress = http://localhost:5075
+
+GET {{ImsFinance.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
